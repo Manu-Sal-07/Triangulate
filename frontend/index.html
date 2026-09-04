@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claims Evidence Review Assistant</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --panel: #ffffff;
+    --ink: #1c1c1a;
+    --muted: #6b6b66;
+    --line: #e2e2dd;
+    --accent: #7a4a2b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 64px 24px; }
+  .track {
+    font: 12px/1 ui-monospace, "Cascadia Code", Consolas, monospace;
+    letter-spacing: .08em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  h1 { font-size: 28px; letter-spacing: -.02em; margin: 12px 0 8px; }
+  p.lede { color: var(--muted); margin: 0 0 32px; max-width: 56ch; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em;
+             color: var(--muted); margin: 0 0 14px; font-weight: 600; }
+  .row { display: flex; align-items: center; gap: 10px;
+         font: 13px/1.4 ui-monospace, "Cascadia Code", Consolas, monospace; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #c9c9c2; flex: none; }
+  .dot.ok { background: #3f8f5f; }
+  .dot.bad { background: #b03a2e; }
+  footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="track">TRACK_ID=PS02</div>
+  <h1>Claims Evidence Review Assistant</h1>
+  <p class="lede">
+    Reviews a motor insurance claim packet against a motor policy: document
+    completeness, cross-document contradictions, applicable clauses, and a
+    recommendation &mdash; every finding cited to its source.
+  </p>
+
+  <div class="card">
+    <h2>Service status</h2>
+    <div class="row"><span class="dot" id="dot"></span><span id="status">checking&hellip;</span></div>
+  </div>
+
+  <footer>Skeleton &mdash; phase 0. The review interface arrives in phase 8.</footer>
+</main>
+
+<script>
+  fetch("/api/health")
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      document.getElementById("dot").className = "dot ok";
+      document.getElementById("status").textContent =
+        "ok \u00b7 track " + d.track_id + " \u00b7 v" + d.version;
+    })
+    .catch(function () {
+      document.getElementById("dot").className = "dot bad";
+      document.getElementById("status").textContent = "api unreachable";
+    });
+</script>
+</body>
+</html>
