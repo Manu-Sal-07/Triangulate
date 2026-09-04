@@ -23,7 +23,11 @@
       "claim_type": "accident",
       "expected_recommendation": "APPROVE",
       "expected_finding_count": 0,
-      "documents": ["CLAIM_FORM", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "documents": [
+        "CLAIM_FORM",
+        "REPAIR_ESTIMATE",
+        "CUSTOMER_NARRATIVE"
+      ],
       "facts": {
         "policy_number": "MOTOR/2025/PN/44817",
         "insured_name": "Priya Deshmukh",
@@ -43,9 +47,21 @@
         "document_submission_date": "2026-03-04",
         "driving_licence_expiry_date": "2029-07-15",
         "estimate_lines": [
-          {"part_code": "SWF-FL-FEN", "description": "Front left fender - replace", "amount": 14200},
-          {"part_code": "SWF-HL-LH", "description": "Headlamp assembly LH - replace", "amount": 11800},
-          {"part_code": "LAB-PNT", "description": "Paint and labour, two panels", "amount": 12500}
+          {
+            "part_code": "SWF-FL-FEN",
+            "description": "Front left fender - replace",
+            "amount": 14200
+          },
+          {
+            "part_code": "SWF-HL-LH",
+            "description": "Headlamp assembly LH - replace",
+            "amount": 11800
+          },
+          {
+            "part_code": "LAB-PNT",
+            "description": "Paint and labour, two panels",
+            "amount": 12500
+          }
         ]
       },
       "planted": [],
@@ -58,7 +74,11 @@
       "claim_type": "theft",
       "expected_recommendation": "APPROVE",
       "expected_finding_count": 0,
-      "documents": ["CLAIM_FORM", "FIR", "CUSTOMER_NARRATIVE"],
+      "documents": [
+        "CLAIM_FORM",
+        "FIR",
+        "CUSTOMER_NARRATIVE"
+      ],
       "facts": {
         "policy_number": "MOTOR/2025/BLR/20934",
         "insured_name": "Anand Raghavan",
@@ -85,7 +105,8 @@
           "field": "claim_amount",
           "what_differed": "claim amount of Rs 72,000 is exactly equal to the IDV of Rs 72,000",
           "why_dismissed": "C-04 caps a claim that exceeds the IDV; a claim equal to it is within the limit",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "boundary"
         }
       ],
       "why_this_case_exists": "The second clean case, and a boundary test: total loss settled at exactly the IDV must not trip the cap in C-04."
@@ -96,7 +117,11 @@
       "claim_type": "accident",
       "expected_recommendation": "APPROVE",
       "expected_finding_count": 0,
-      "documents": ["CLAIM_FORM", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "documents": [
+        "CLAIM_FORM",
+        "REPAIR_ESTIMATE",
+        "CUSTOMER_NARRATIVE"
+      ],
       "facts": {
         "policy_number": "MOTOR/2025/CHN/71260",
         "insured_name": "Lakshmi Narayanan",
@@ -116,12 +141,36 @@
         "document_submission_date": "2026-01-22",
         "driving_licence_expiry_date": "2031-04-30",
         "estimate_lines": [
-          {"part_code": "INV-BON-A", "description": "Bonnet assembly - replace", "amount": 46800},
-          {"part_code": "INV-GRL", "description": "Front grille and bumper - replace", "amount": 38400},
-          {"part_code": "INV-RAD", "description": "Radiator and condenser - replace", "amount": 71250},
-          {"part_code": "INV-HL-RH", "description": "Headlamp assembly RH - replace", "amount": 29800},
-          {"part_code": "LAB-STR", "description": "Structural straightening and alignment", "amount": 58500},
-          {"part_code": "LAB-PNT", "description": "Paint, four panels", "amount": 50000}
+          {
+            "part_code": "INV-BON-A",
+            "description": "Bonnet assembly - replace",
+            "amount": 46800
+          },
+          {
+            "part_code": "INV-GRL",
+            "description": "Front grille and bumper - replace",
+            "amount": 38400
+          },
+          {
+            "part_code": "INV-RAD",
+            "description": "Radiator and condenser - replace",
+            "amount": 71250
+          },
+          {
+            "part_code": "INV-HL-RH",
+            "description": "Headlamp assembly RH - replace",
+            "amount": 29800
+          },
+          {
+            "part_code": "LAB-STR",
+            "description": "Structural straightening and alignment",
+            "amount": 58500
+          },
+          {
+            "part_code": "LAB-PNT",
+            "description": "Paint, four panels",
+            "amount": 50000
+          }
         ]
       },
       "planted": [],
@@ -130,13 +179,15 @@
           "field": "incident_time",
           "what_differed": "incident occurred at 02:35, outside normal driving hours",
           "why_dismissed": "no clause in the policy restricts the time of day at which cover applies",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "not_a_rule"
         },
         {
           "field": "claim_amount",
           "what_differed": "claim of Rs 2,94,750 is large in absolute terms",
           "why_dismissed": "well within the IDV of Rs 12,80,000 and consistent with the estimate line items",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "not_a_rule"
         }
       ],
       "why_this_case_exists": "Proves the system does not flag on suspicion. A night-time incident and a large amount are the two things a naive reviewer would escalate, and neither breaches any clause."
@@ -147,7 +198,12 @@
       "claim_type": "accident",
       "expected_recommendation": "ESCALATE",
       "expected_finding_count": 1,
-      "documents": ["CLAIM_FORM", "FIR", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "documents": [
+        "CLAIM_FORM",
+        "FIR",
+        "REPAIR_ESTIMATE",
+        "CUSTOMER_NARRATIVE"
+      ],
       "facts": {
         "policy_number": "MOTOR/2025/DEL/38115",
         "insured_name": "Farhan Qureshi",
@@ -170,10 +226,26 @@
         "document_submission_date": "2026-03-17",
         "driving_licence_expiry_date": "2028-11-20",
         "estimate_lines": [
-          {"part_code": "I20-RB-ASY", "description": "Rear bumper assembly - replace", "amount": 18400},
-          {"part_code": "I20-BOOT", "description": "Boot lid - repair and refinish", "amount": 16900},
-          {"part_code": "I20-TL-LH", "description": "Tail lamp LH - replace", "amount": 9700},
-          {"part_code": "LAB-PNT", "description": "Paint and labour, two panels", "amount": 12800}
+          {
+            "part_code": "I20-RB-ASY",
+            "description": "Rear bumper assembly - replace",
+            "amount": 18400
+          },
+          {
+            "part_code": "I20-BOOT",
+            "description": "Boot lid - repair and refinish",
+            "amount": 16900
+          },
+          {
+            "part_code": "I20-TL-LH",
+            "description": "Tail lamp LH - replace",
+            "amount": 9700
+          },
+          {
+            "part_code": "LAB-PNT",
+            "description": "Paint and labour, two panels",
+            "amount": 12800
+          }
         ]
       },
       "planted": [
@@ -183,9 +255,15 @@
           "severity": "material",
           "drives_recommendation": true,
           "detail": "claim form states 14 March 2026, the FIR states 12 March 2026",
-          "values": {"CLAIM_FORM": "2026-03-14", "FIR": "2026-03-12"},
+          "values": {
+            "CLAIM_FORM": "2026-03-14",
+            "FIR": "2026-03-12"
+          },
           "consequence": "The intimation on 15 March is within the 48 hour window in C-06 if the incident was on the 14th and outside it if the incident was on the 12th, so the disagreement decides whether a policy condition was breached. It cannot be resolved from the packet.",
-          "expected_citations": ["CLAIM_FORM", "FIR"]
+          "expected_citations": [
+            "CLAIM_FORM",
+            "FIR"
+          ]
         }
       ],
       "near_misses": [
@@ -193,13 +271,15 @@
           "field": "vehicle_reg",
           "what_differed": "DL-8C-AF-3092 on the claim form, DL8CAF3092 on the repair estimate",
           "why_dismissed": "identical registration after normalisation",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "surface_variation"
         },
         {
           "field": "C-06",
           "what_differed": "the intimation window check has a contradicted input",
           "why_dismissed": "C-06 must return UNKNOWN rather than choosing one of the two dates; emitting a cited POLICY_DEVIATION from a disputed value would be a false finding wearing a citation",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "check_must_abstain"
         }
       ],
       "why_this_case_exists": "The signature contradiction case. It also tests that a deterministic check refuses to evaluate on a disputed input instead of silently picking a side."
@@ -210,7 +290,10 @@
       "claim_type": "theft",
       "expected_recommendation": "REQUEST_INFO",
       "expected_finding_count": 1,
-      "documents": ["CLAIM_FORM", "CUSTOMER_NARRATIVE"],
+      "documents": [
+        "CLAIM_FORM",
+        "CUSTOMER_NARRATIVE"
+      ],
       "facts": {
         "policy_number": "MOTOR/2025/AHM/50472",
         "insured_name": "Nikhil Patel",
@@ -236,7 +319,9 @@
           "drives_recommendation": true,
           "detail": "C-10 requires a copy of the First Information Report for a theft claim and no FIR is present in the packet",
           "consequence": "Blocking incompleteness, so the review requests the FIR by name rather than assessing the claim on an incomplete packet.",
-          "expected_citations": ["C-10"]
+          "expected_citations": [
+            "C-10"
+          ]
         }
       ],
       "near_misses": [
@@ -244,7 +329,8 @@
           "field": "C-07",
           "what_differed": "the FIR window check has no fir_date to evaluate",
           "why_dismissed": "the absent FIR is already reported once by C-10; C-07 must return UNKNOWN rather than reporting the same absence a second time as a missed deadline",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "check_must_abstain"
         }
       ],
       "why_this_case_exists": "Absence is a finding, and it must be reported exactly once. Double-reporting one absence as both a missing document and a missed deadline is a real failure mode."
@@ -255,7 +341,11 @@
       "claim_type": "accident",
       "expected_recommendation": "ESCALATE",
       "expected_finding_count": 2,
-      "documents": ["CLAIM_FORM", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "documents": [
+        "CLAIM_FORM",
+        "REPAIR_ESTIMATE",
+        "CUSTOMER_NARRATIVE"
+      ],
       "facts": {
         "policy_number": "MOTOR/2025/PN/61903",
         "insured_name": "Sunita Kulkarni",
@@ -275,11 +365,31 @@
         "document_submission_date": "2026-03-24",
         "driving_licence_expiry_date": "2030-06-12",
         "estimate_lines": [
-          {"part_code": "NXN-RB-ASY", "description": "Rear bumper assembly - replace", "amount": 21600},
-          {"part_code": "NXN-TL-RH", "description": "Tail lamp RH - replace", "amount": 12300},
-          {"part_code": "NXN-FB-ASY", "description": "Front bumper assembly - replace", "amount": 24800},
-          {"part_code": "NXN-BON", "description": "Bonnet - repair and refinish", "amount": 19400},
-          {"part_code": "LAB-PNT", "description": "Paint and labour, four panels", "amount": 34300}
+          {
+            "part_code": "NXN-RB-ASY",
+            "description": "Rear bumper assembly - replace",
+            "amount": 21600
+          },
+          {
+            "part_code": "NXN-TL-RH",
+            "description": "Tail lamp RH - replace",
+            "amount": 12300
+          },
+          {
+            "part_code": "NXN-FB-ASY",
+            "description": "Front bumper assembly - replace",
+            "amount": 24800
+          },
+          {
+            "part_code": "NXN-BON",
+            "description": "Bonnet - repair and refinish",
+            "amount": 19400
+          },
+          {
+            "part_code": "LAB-PNT",
+            "description": "Paint and labour, four panels",
+            "amount": 34300
+          }
         ]
       },
       "planted": [
@@ -289,9 +399,16 @@
           "severity": "material",
           "drives_recommendation": true,
           "detail": "the claim form and customer narrative both describe a front impact, while the repair estimate bills a rear bumper assembly and a rear tail lamp",
-          "values": {"CLAIM_FORM": "front", "CUSTOMER_NARRATIVE": "front", "REPAIR_ESTIMATE": "front and rear"},
+          "values": {
+            "CLAIM_FORM": "front",
+            "CUSTOMER_NARRATIVE": "front",
+            "REPAIR_ESTIMATE": "front and rear"
+          },
           "consequence": "The documents disagree about which part of the vehicle was damaged, which cannot be resolved from the packet and requires a surveyor.",
-          "expected_citations": ["CUSTOMER_NARRATIVE", "REPAIR_ESTIMATE"]
+          "expected_citations": [
+            "CUSTOMER_NARRATIVE",
+            "REPAIR_ESTIMATE"
+          ]
         },
         {
           "klass": "POLICY_DEVIATION",
@@ -302,7 +419,10 @@
           "drives_recommendation": false,
           "detail": "C-16 requires the repair estimate to relate to the damage reported; rear-end parts billed against a front impact do not",
           "consequence": "A model-proposed clause application, capped at material by ADR-001, so it escalates rather than rejecting.",
-          "expected_citations": ["REPAIR_ESTIMATE", "C-16"]
+          "expected_citations": [
+            "REPAIR_ESTIMATE",
+            "C-16"
+          ]
         }
       ],
       "near_misses": [],
@@ -314,7 +434,11 @@
       "claim_type": "accident",
       "expected_recommendation": "APPROVE_CAPPED",
       "expected_finding_count": 1,
-      "documents": ["CLAIM_FORM", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "documents": [
+        "CLAIM_FORM",
+        "REPAIR_ESTIMATE",
+        "CUSTOMER_NARRATIVE"
+      ],
       "facts": {
         "policy_number": "MOTOR/2025/JAI/17558",
         "insured_name": "Meera Chauhan",
@@ -334,11 +458,31 @@
         "document_submission_date": "2026-02-08",
         "driving_licence_expiry_date": "2027-09-30",
         "estimate_lines": [
-          {"part_code": "ALT-DR-FL", "description": "Front left door - replace", "amount": 31500},
-          {"part_code": "ALT-DR-RL", "description": "Rear left door - replace", "amount": 29800},
-          {"part_code": "ALT-BP-L", "description": "B-pillar section - straighten and reinforce", "amount": 42700},
-          {"part_code": "ALT-SUS-L", "description": "Left front suspension assembly - replace", "amount": 54600},
-          {"part_code": "LAB-PNT", "description": "Paint and labour, five panels", "amount": 53400}
+          {
+            "part_code": "ALT-DR-FL",
+            "description": "Front left door - replace",
+            "amount": 31500
+          },
+          {
+            "part_code": "ALT-DR-RL",
+            "description": "Rear left door - replace",
+            "amount": 29800
+          },
+          {
+            "part_code": "ALT-BP-L",
+            "description": "B-pillar section - straighten and reinforce",
+            "amount": 42700
+          },
+          {
+            "part_code": "ALT-SUS-L",
+            "description": "Left front suspension assembly - replace",
+            "amount": 54600
+          },
+          {
+            "part_code": "LAB-PNT",
+            "description": "Paint and labour, five panels",
+            "amount": 53400
+          }
         ]
       },
       "planted": [
@@ -350,7 +494,10 @@
           "drives_recommendation": true,
           "detail": "claimed Rs 2,12,000 against an IDV of Rs 1,85,000, a ratio of 1.15",
           "consequence": "Below the 1.5 escalation ratio, so the excess is arithmetic rather than a defect: settlement is capped at the IDV and the report shows claimed Rs 2,12,000, payable Rs 1,85,000, difference Rs 27,000.",
-          "expected_citations": ["CLAIM_FORM", "C-04"]
+          "expected_citations": [
+            "CLAIM_FORM",
+            "C-04"
+          ]
         }
       ],
       "near_misses": [
@@ -358,7 +505,8 @@
           "field": "claim_amount",
           "what_differed": "Rs. 2,12,000 on the claim form, 212000.00 as the estimate total",
           "why_dismissed": "identical amount after currency normalisation",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "surface_variation"
         }
       ],
       "why_this_case_exists": "The only case that reaches APPROVE_CAPPED, and it tests that an ordinary excess stays informational rather than escalating. The 1.5 ratio exists so that a claim at three times the IDV is treated as a different event; this claim is deliberately below it."
@@ -369,7 +517,11 @@
       "claim_type": "accident",
       "expected_recommendation": "REJECT",
       "expected_finding_count": 2,
-      "documents": ["CLAIM_FORM", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "documents": [
+        "CLAIM_FORM",
+        "REPAIR_ESTIMATE",
+        "CUSTOMER_NARRATIVE"
+      ],
       "facts": {
         "policy_number": "MOTOR/2025/KOC/29644",
         "insured_name": "Thomas Varghese",
@@ -389,10 +541,26 @@
         "document_submission_date": "2026-04-10",
         "driving_licence_expiry_date": "2026-01-31",
         "estimate_lines": [
-          {"part_code": "CTY-QP-FR", "description": "Front right quarter panel - replace", "amount": 27400},
-          {"part_code": "CTY-HL-RH", "description": "Headlamp assembly RH - replace", "amount": 23900},
-          {"part_code": "CTY-FB-ASY", "description": "Front bumper assembly - repair and refinish", "amount": 12600},
-          {"part_code": "LAB-PNT", "description": "Paint and labour, three panels", "amount": 14400}
+          {
+            "part_code": "CTY-QP-FR",
+            "description": "Front right quarter panel - replace",
+            "amount": 27400
+          },
+          {
+            "part_code": "CTY-HL-RH",
+            "description": "Headlamp assembly RH - replace",
+            "amount": 23900
+          },
+          {
+            "part_code": "CTY-FB-ASY",
+            "description": "Front bumper assembly - repair and refinish",
+            "amount": 12600
+          },
+          {
+            "part_code": "LAB-PNT",
+            "description": "Paint and labour, three panels",
+            "amount": 14400
+          }
         ]
       },
       "planted": [
@@ -405,7 +573,10 @@
           "drives_recommendation": true,
           "detail": "licence expired 31 January 2026, incident occurred 8 April 2026",
           "consequence": "A machine-checkable exclusion on a date comparison, so it is permitted to be blocking and the recommendation is REJECT with C-11 quoted.",
-          "expected_citations": ["CLAIM_FORM", "C-11"]
+          "expected_citations": [
+            "CLAIM_FORM",
+            "C-11"
+          ]
         },
         {
           "klass": "POLICY_DEVIATION",
@@ -416,7 +587,10 @@
           "drives_recommendation": false,
           "detail": "the customer narrative describes dropping off a paying passenger before the incident, which C-13 excludes",
           "consequence": "A model proposal, capped at material. It is reported as a finding but does not drive the recommendation, which is already determined by the deterministic exclusion above it in the ordering.",
-          "expected_citations": ["CUSTOMER_NARRATIVE", "C-13"]
+          "expected_citations": [
+            "CUSTOMER_NARRATIVE",
+            "C-13"
+          ]
         }
       ],
       "near_misses": [],
@@ -428,7 +602,12 @@
       "claim_type": "accident",
       "expected_recommendation": "APPROVE",
       "expected_finding_count": 0,
-      "documents": ["CLAIM_FORM", "FIR", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "documents": [
+        "CLAIM_FORM",
+        "FIR",
+        "REPAIR_ESTIMATE",
+        "CUSTOMER_NARRATIVE"
+      ],
       "facts": {
         "policy_number": "MOTOR/2025/LKO/83201",
         "insured_name": "Rajesh Kumar Singh",
@@ -453,9 +632,21 @@
         "document_submission_date": "2026-02-16",
         "driving_licence_expiry_date": "2029-03-22",
         "estimate_lines": [
-          {"part_code": "XUV-DR-RL", "description": "Rear left door - repair and refinish", "amount": 18600},
-          {"part_code": "XUV-QP-RL", "description": "Rear left quarter panel - dent removal", "amount": 14900},
-          {"part_code": "LAB-PNT", "description": "Paint and labour, two panels", "amount": 21500}
+          {
+            "part_code": "XUV-DR-RL",
+            "description": "Rear left door - repair and refinish",
+            "amount": 18600
+          },
+          {
+            "part_code": "XUV-QP-RL",
+            "description": "Rear left quarter panel - dent removal",
+            "amount": 14900
+          },
+          {
+            "part_code": "LAB-PNT",
+            "description": "Paint and labour, two panels",
+            "amount": 21500
+          }
         ]
       },
       "planted": [],
@@ -464,43 +655,50 @@
           "field": "vehicle_reg",
           "what_differed": "UP-32-DN-6647 on the claim form, UP32DN6647 on the repair estimate, U.P. 32 DN 6647 in the FIR",
           "why_dismissed": "identical registration after normalisation",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "surface_variation"
         },
         {
           "field": "incident_date",
           "what_differed": "12/02/2026 on the claim form, 12-Feb-2026 on the estimate, February 12, 2026 in the narrative",
           "why_dismissed": "identical date after parsing; the day-first format is unambiguous here because 12 is a valid month and day but all three sources agree once parsed",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "surface_variation"
         },
         {
           "field": "claim_amount",
           "what_differed": "Rs. 64,900 on the claim form, 64900.00 as the estimate total",
           "why_dismissed": "identical amount after currency normalisation",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "surface_variation"
         },
         {
           "field": "estimate_total",
           "what_differed": "estimate line items sum to Rs 55,000 while the estimate total reads Rs 64,900",
           "why_dismissed": "the difference is 18 percent GST stated on the estimate; the totals reconcile once tax is accounted for",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "reconciles_with_tax"
         },
         {
           "field": "insured_name",
           "what_differed": "Rajesh Kumar Singh on the claim form, R. K. Singh in the FIR, Rajesh K Singh on the estimate",
           "why_dismissed": "same person after name normalisation of initials",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "surface_variation"
         },
         {
           "field": "incident_time",
           "what_differed": "18:30 on the claim form, approximately 6.30 in the evening in the narrative",
           "why_dismissed": "identical time after normalisation; the narrative is approximate by its own wording",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "surface_variation"
         },
         {
           "field": "fir_date",
           "what_differed": "the FIR was lodged on 14 February, two days after the incident on the 12th",
           "why_dismissed": "C-07 imposes a 72 hour FIR window on theft claims only; no clause imposes an FIR deadline on an own-damage claim, and this FIR is in any case within 72 hours",
-          "must_not_flag": true
+          "must_not_flag": true,
+          "kind": "not_a_rule"
         }
       ],
       "why_this_case_exists": "The calibration case. Seven things look wrong and none of them are. Every one must appear under considered and dismissed with its reason, and none may appear as a finding. If a near-miss leaks into findings as informational, the clean cases stop looking clean and the calibration story is gone."

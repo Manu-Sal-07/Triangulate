@@ -1,0 +1,221 @@
+{
+  "case_id": "C09",
+  "claim_type": "accident",
+  "documents": {
+    "CLAIM_FORM": {
+      "path": "data/claims/C09/claim_form.md",
+      "fields": [
+        {
+          "field": "insured_name",
+          "canonical": "Rajesh Kumar Singh",
+          "surface": "Rajesh Kumar Singh"
+        },
+        {
+          "field": "vehicle_make_model",
+          "canonical": "Mahindra XUV300 W8 (2021)",
+          "surface": "Mahindra XUV300 W8 (2021)"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "UP-32-DN-6647",
+          "surface": "UP-32-DN-6647"
+        },
+        {
+          "field": "engine_capacity_cc",
+          "canonical": "1497",
+          "surface": "1497"
+        },
+        {
+          "field": "insured_declared_value",
+          "canonical": "710000",
+          "surface": "7,10,000"
+        },
+        {
+          "field": "driving_licence_expiry_date",
+          "canonical": "2029-03-22",
+          "surface": "22/03/2029"
+        },
+        {
+          "field": "driver_name",
+          "canonical": "Rajesh Kumar Singh",
+          "surface": "Rajesh Kumar Singh"
+        },
+        {
+          "field": "incident_date",
+          "canonical": "2026-02-12",
+          "surface": "12/02/2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "18:30",
+          "surface": "18:30"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Faizabad Road near Indira Nagar, Lucknow",
+          "surface": "Faizabad Road near Indira Nagar, Lucknow"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "rear-left",
+          "surface": "rear-left"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "64900",
+          "surface": "64,900"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-02-13",
+          "surface": "13/02/2026"
+        },
+        {
+          "field": "document_submission_date",
+          "canonical": "2026-02-16",
+          "surface": "16/02/2026"
+        }
+      ]
+    },
+    "FIR": {
+      "path": "data/claims/C09/fir.md",
+      "fields": [
+        {
+          "field": "police_station",
+          "canonical": "Indira Nagar Police Station, Lucknow",
+          "surface": "Indira Nagar Police Station, Lucknow"
+        },
+        {
+          "field": "fir_number",
+          "canonical": "0431/2026",
+          "surface": "0431/2026"
+        },
+        {
+          "field": "fir_date",
+          "canonical": "2026-02-14",
+          "surface": "14.02.2026"
+        },
+        {
+          "field": "incident_date",
+          "canonical": "2026-02-12",
+          "surface": "12.02.2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "18:30",
+          "surface": "1830 hours"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "UP-32-DN-6647",
+          "surface": "U.P. 32 DN 6647"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "rear-left",
+          "surface": "rear left portion"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Rajesh Kumar Singh",
+          "surface": "R. K. Singh"
+        }
+      ]
+    },
+    "REPAIR_ESTIMATE": {
+      "path": "data/claims/C09/repair_estimate.md",
+      "fields": [
+        {
+          "field": "vehicle_reg",
+          "canonical": "UP-32-DN-6647",
+          "surface": "UP32DN6647"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Rajesh Kumar Singh",
+          "surface": "Rajesh K Singh"
+        },
+        {
+          "field": "estimate_date",
+          "canonical": "2026-02-16",
+          "surface": "16-Feb-2026"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "rear-left",
+          "surface": "Rear left impact damage"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "18600",
+          "surface": "18600.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "14900",
+          "surface": "14900.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "21500",
+          "surface": "21500.00"
+        },
+        {
+          "field": "estimate_subtotal",
+          "canonical": "55000",
+          "surface": "55000.00"
+        },
+        {
+          "field": "estimate_gst_amount",
+          "canonical": "9900",
+          "surface": "9900.00"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "64900",
+          "surface": "64900.00"
+        }
+      ]
+    },
+    "CUSTOMER_NARRATIVE": {
+      "path": "data/claims/C09/customer_narrative.md",
+      "fields": [
+        {
+          "field": "incident_date",
+          "canonical": "2026-02-12",
+          "surface": "February 12, 2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "18:30",
+          "surface": "approx 6.30 in the evening"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Faizabad Road near Indira Nagar, Lucknow",
+          "surface": "Indira Nagar junction on Faizabad Road"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "rear-left",
+          "surface": "hit the rear left of my car"
+        },
+        {
+          "field": "fir_date",
+          "canonical": "2026-02-14",
+          "surface": "two days later on the 14th"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-02-13",
+          "surface": "the next day itself, 13th February"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Rajesh Kumar Singh",
+          "surface": "Rajesh K Singh"
+        }
+      ]
+    }
+  }
+}

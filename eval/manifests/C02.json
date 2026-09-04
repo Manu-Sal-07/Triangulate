@@ -1,0 +1,141 @@
+{
+  "case_id": "C02",
+  "claim_type": "theft",
+  "documents": {
+    "CLAIM_FORM": {
+      "path": "data/claims/C02/claim_form.md",
+      "fields": [
+        {
+          "field": "insured_name",
+          "canonical": "Anand Raghavan",
+          "surface": "Anand Raghavan"
+        },
+        {
+          "field": "vehicle_make_model",
+          "canonical": "Honda Activa 6G (2022)",
+          "surface": "Honda Activa 6G (2022)"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "KA-05-MJ-8871",
+          "surface": "KA-05-MJ-8871"
+        },
+        {
+          "field": "engine_capacity_cc",
+          "canonical": "109",
+          "surface": "109"
+        },
+        {
+          "field": "insured_declared_value",
+          "canonical": "72000",
+          "surface": "72,000"
+        },
+        {
+          "field": "theft_discovery_date",
+          "canonical": "2026-02-11",
+          "surface": "11/02/2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "07:15",
+          "surface": "07:15"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Apartment basement parking, 4th Block Jayanagar, Bengaluru",
+          "surface": "Apartment basement parking, 4th Block Jayanagar, Bengaluru"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "72000",
+          "surface": "72,000"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-02-11",
+          "surface": "11/02/2026"
+        },
+        {
+          "field": "document_submission_date",
+          "canonical": "2026-02-13",
+          "surface": "13/02/2026"
+        }
+      ]
+    },
+    "FIR": {
+      "path": "data/claims/C02/fir.md",
+      "fields": [
+        {
+          "field": "police_station",
+          "canonical": "Jayanagar Police Station, Bengaluru South",
+          "surface": "Jayanagar Police Station, Bengaluru South"
+        },
+        {
+          "field": "fir_number",
+          "canonical": "0112/2026",
+          "surface": "0112/2026"
+        },
+        {
+          "field": "fir_date",
+          "canonical": "2026-02-11",
+          "surface": "11.02.2026"
+        },
+        {
+          "field": "theft_discovery_date",
+          "canonical": "2026-02-11",
+          "surface": "11.02.2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "07:15",
+          "surface": "0715 hours"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "KA-05-MJ-8871",
+          "surface": "KA 05 MJ 8871"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Anand Raghavan",
+          "surface": "Anand Raghavan"
+        }
+      ]
+    },
+    "CUSTOMER_NARRATIVE": {
+      "path": "data/claims/C02/customer_narrative.md",
+      "fields": [
+        {
+          "field": "theft_discovery_date",
+          "canonical": "2026-02-11",
+          "surface": "11 February 2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "07:15",
+          "surface": "quarter past seven"
+        },
+        {
+          "field": "fir_number",
+          "canonical": "0112/2026",
+          "surface": "number 0112/2026"
+        },
+        {
+          "field": "police_station",
+          "canonical": "Jayanagar Police Station, Bengaluru South",
+          "surface": "Jayanagar Police Station"
+        },
+        {
+          "field": "intimation_time",
+          "canonical": "09:30",
+          "surface": "9.30"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Anand Raghavan",
+          "surface": "Anand Raghavan"
+        }
+      ]
+    }
+  }
+}

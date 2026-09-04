@@ -1,0 +1,206 @@
+{
+  "case_id": "C04",
+  "claim_type": "accident",
+  "documents": {
+    "CLAIM_FORM": {
+      "path": "data/claims/C04/claim_form.md",
+      "fields": [
+        {
+          "field": "insured_name",
+          "canonical": "Farhan Qureshi",
+          "surface": "Farhan Qureshi"
+        },
+        {
+          "field": "vehicle_make_model",
+          "canonical": "Hyundai i20 Sportz (2022)",
+          "surface": "Hyundai i20 Sportz (2022)"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "DL-8C-AF-3092",
+          "surface": "DL-8C-AF-3092"
+        },
+        {
+          "field": "engine_capacity_cc",
+          "canonical": "1197",
+          "surface": "1197"
+        },
+        {
+          "field": "insured_declared_value",
+          "canonical": "620000",
+          "surface": "6,20,000"
+        },
+        {
+          "field": "driving_licence_expiry_date",
+          "canonical": "2028-11-20",
+          "surface": "20/11/2028"
+        },
+        {
+          "field": "driver_name",
+          "canonical": "Farhan Qureshi",
+          "surface": "Farhan Qureshi"
+        },
+        {
+          "field": "incident_date",
+          "canonical": "2026-03-14",
+          "surface": "14/03/2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "20:10",
+          "surface": "20:10"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Ring Road near Lajpat Nagar, New Delhi",
+          "surface": "Ring Road near Lajpat Nagar, New Delhi"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "rear",
+          "surface": "rear"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "57800",
+          "surface": "57,800"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-03-15",
+          "surface": "15/03/2026"
+        },
+        {
+          "field": "document_submission_date",
+          "canonical": "2026-03-17",
+          "surface": "17/03/2026"
+        }
+      ]
+    },
+    "FIR": {
+      "path": "data/claims/C04/fir.md",
+      "fields": [
+        {
+          "field": "police_station",
+          "canonical": "Lajpat Nagar Police Station, New Delhi",
+          "surface": "Lajpat Nagar Police Station, New Delhi"
+        },
+        {
+          "field": "fir_number",
+          "canonical": "0287/2026",
+          "surface": "0287/2026"
+        },
+        {
+          "field": "fir_date",
+          "canonical": "2026-03-15",
+          "surface": "15.03.2026"
+        },
+        {
+          "field": "incident_date",
+          "canonical": "2026-03-12",
+          "surface": "12.03.2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "20:10",
+          "surface": "2010 hours"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "DL-8C-AF-3092",
+          "surface": "DL 8C AF 3092"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "rear",
+          "surface": "causing damage to its rear portion"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Farhan Qureshi",
+          "surface": "Farhan Qureshi"
+        }
+      ]
+    },
+    "REPAIR_ESTIMATE": {
+      "path": "data/claims/C04/repair_estimate.md",
+      "fields": [
+        {
+          "field": "vehicle_reg",
+          "canonical": "DL-8C-AF-3092",
+          "surface": "DL8CAF3092"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Farhan Qureshi",
+          "surface": "Farhan Qureshi"
+        },
+        {
+          "field": "estimate_date",
+          "canonical": "2026-03-17",
+          "surface": "17-Mar-2026"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "rear",
+          "surface": "Rear end impact damage"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "18400",
+          "surface": "18400.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "16900",
+          "surface": "16900.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "9700",
+          "surface": "9700.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "12800",
+          "surface": "12800.00"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "57800",
+          "surface": "57800.00"
+        }
+      ]
+    },
+    "CUSTOMER_NARRATIVE": {
+      "path": "data/claims/C04/customer_narrative.md",
+      "fields": [
+        {
+          "field": "incident_time",
+          "canonical": "20:10",
+          "surface": "around ten past eight"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Ring Road near Lajpat Nagar, New Delhi",
+          "surface": "Ring Road near Lajpat Nagar"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "rear",
+          "surface": "went into the back of my car"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-03-15",
+          "surface": "on the 15th"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Farhan Qureshi",
+          "surface": "Farhan Qureshi"
+        }
+      ]
+    }
+  }
+}

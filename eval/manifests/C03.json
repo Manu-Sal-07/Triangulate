@@ -1,0 +1,176 @@
+{
+  "case_id": "C03",
+  "claim_type": "accident",
+  "documents": {
+    "CLAIM_FORM": {
+      "path": "data/claims/C03/claim_form.md",
+      "fields": [
+        {
+          "field": "insured_name",
+          "canonical": "Lakshmi Narayanan",
+          "surface": "Lakshmi Narayanan"
+        },
+        {
+          "field": "vehicle_make_model",
+          "canonical": "Toyota Innova Crysta 2.4 GX (2019)",
+          "surface": "Toyota Innova Crysta 2.4 GX (2019)"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "TN-09-BX-4420",
+          "surface": "TN-09-BX-4420"
+        },
+        {
+          "field": "engine_capacity_cc",
+          "canonical": "2393",
+          "surface": "2393"
+        },
+        {
+          "field": "insured_declared_value",
+          "canonical": "1280000",
+          "surface": "12,80,000"
+        },
+        {
+          "field": "driving_licence_expiry_date",
+          "canonical": "2031-04-30",
+          "surface": "30/04/2031"
+        },
+        {
+          "field": "driver_name",
+          "canonical": "Lakshmi Narayanan",
+          "surface": "Lakshmi Narayanan"
+        },
+        {
+          "field": "incident_date",
+          "canonical": "2026-01-19",
+          "surface": "19/01/2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "02:35",
+          "surface": "02:35"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "NH-48 near Sriperumbudur, Tamil Nadu",
+          "surface": "NH-48 near Sriperumbudur, Tamil Nadu"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front",
+          "surface": "front"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "294750",
+          "surface": "2,94,750"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-01-19",
+          "surface": "19/01/2026"
+        },
+        {
+          "field": "document_submission_date",
+          "canonical": "2026-01-22",
+          "surface": "22/01/2026"
+        }
+      ]
+    },
+    "REPAIR_ESTIMATE": {
+      "path": "data/claims/C03/repair_estimate.md",
+      "fields": [
+        {
+          "field": "vehicle_reg",
+          "canonical": "TN-09-BX-4420",
+          "surface": "TN09BX4420"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Lakshmi Narayanan",
+          "surface": "Lakshmi Narayanan"
+        },
+        {
+          "field": "estimate_date",
+          "canonical": "2026-01-22",
+          "surface": "22-Jan-2026"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front",
+          "surface": "Front end impact damage"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "46800",
+          "surface": "46800.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "38400",
+          "surface": "38400.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "71250",
+          "surface": "71250.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "29800",
+          "surface": "29800.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "58500",
+          "surface": "58500.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "50000",
+          "surface": "50000.00"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "294750",
+          "surface": "294750.00"
+        }
+      ]
+    },
+    "CUSTOMER_NARRATIVE": {
+      "path": "data/claims/C03/customer_narrative.md",
+      "fields": [
+        {
+          "field": "incident_date",
+          "canonical": "2026-01-19",
+          "surface": "19 January 2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "02:35",
+          "surface": "2.35 am"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "NH-48 near Sriperumbudur, Tamil Nadu",
+          "surface": "NH-48 near Sriperumbudur"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front",
+          "surface": "The front of the vehicle took the whole impact"
+        },
+        {
+          "field": "vehicle_make_model",
+          "canonical": "Toyota Innova Crysta 2.4 GX (2019)",
+          "surface": "2019 Innova Crysta"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Lakshmi Narayanan",
+          "surface": "Lakshmi Narayanan"
+        }
+      ]
+    }
+  }
+}

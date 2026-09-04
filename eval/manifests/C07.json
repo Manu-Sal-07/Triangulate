@@ -1,0 +1,171 @@
+{
+  "case_id": "C07",
+  "claim_type": "accident",
+  "documents": {
+    "CLAIM_FORM": {
+      "path": "data/claims/C07/claim_form.md",
+      "fields": [
+        {
+          "field": "insured_name",
+          "canonical": "Meera Chauhan",
+          "surface": "Meera Chauhan"
+        },
+        {
+          "field": "vehicle_make_model",
+          "canonical": "Maruti Suzuki Alto K10 (2016)",
+          "surface": "Maruti Suzuki Alto K10 (2016)"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "RJ-14-CV-9083",
+          "surface": "RJ-14-CV-9083"
+        },
+        {
+          "field": "engine_capacity_cc",
+          "canonical": "796",
+          "surface": "796"
+        },
+        {
+          "field": "insured_declared_value",
+          "canonical": "185000",
+          "surface": "1,85,000"
+        },
+        {
+          "field": "driving_licence_expiry_date",
+          "canonical": "2027-09-30",
+          "surface": "30/09/2027"
+        },
+        {
+          "field": "driver_name",
+          "canonical": "Meera Chauhan",
+          "surface": "Meera Chauhan"
+        },
+        {
+          "field": "incident_date",
+          "canonical": "2026-02-05",
+          "surface": "05/02/2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "11:20",
+          "surface": "11:20"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Tonk Road, Jaipur",
+          "surface": "Tonk Road, Jaipur"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "left side",
+          "surface": "left side"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "212000",
+          "surface": "2,12,000"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-02-05",
+          "surface": "05/02/2026"
+        },
+        {
+          "field": "document_submission_date",
+          "canonical": "2026-02-08",
+          "surface": "08/02/2026"
+        }
+      ]
+    },
+    "REPAIR_ESTIMATE": {
+      "path": "data/claims/C07/repair_estimate.md",
+      "fields": [
+        {
+          "field": "vehicle_reg",
+          "canonical": "RJ-14-CV-9083",
+          "surface": "RJ14CV9083"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Meera Chauhan",
+          "surface": "Meera Chauhan"
+        },
+        {
+          "field": "estimate_date",
+          "canonical": "2026-02-08",
+          "surface": "08-Feb-2026"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "left side",
+          "surface": "Left side impact damage"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "31500",
+          "surface": "31500.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "29800",
+          "surface": "29800.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "42700",
+          "surface": "42700.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "54600",
+          "surface": "54600.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "53400",
+          "surface": "53400.00"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "212000",
+          "surface": "212000.00"
+        }
+      ]
+    },
+    "CUSTOMER_NARRATIVE": {
+      "path": "data/claims/C07/customer_narrative.md",
+      "fields": [
+        {
+          "field": "incident_date",
+          "canonical": "2026-02-05",
+          "surface": "5 February 2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "11:20",
+          "surface": "about 11.20 in the morning"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Tonk Road, Jaipur",
+          "surface": "Tonk Road"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "left side",
+          "surface": "hit me on the left side"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-02-05",
+          "surface": "the same day"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Meera Chauhan",
+          "surface": "Meera Chauhan"
+        }
+      ]
+    }
+  }
+}

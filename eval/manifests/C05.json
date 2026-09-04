@@ -1,0 +1,96 @@
+{
+  "case_id": "C05",
+  "claim_type": "theft",
+  "documents": {
+    "CLAIM_FORM": {
+      "path": "data/claims/C05/claim_form.md",
+      "fields": [
+        {
+          "field": "insured_name",
+          "canonical": "Nikhil Patel",
+          "surface": "Nikhil Patel"
+        },
+        {
+          "field": "vehicle_make_model",
+          "canonical": "Bajaj Pulsar 150 (2021)",
+          "surface": "Bajaj Pulsar 150 (2021)"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "GJ-01-KL-2264",
+          "surface": "GJ-01-KL-2264"
+        },
+        {
+          "field": "engine_capacity_cc",
+          "canonical": "149",
+          "surface": "149"
+        },
+        {
+          "field": "insured_declared_value",
+          "canonical": "68000",
+          "surface": "68,000"
+        },
+        {
+          "field": "theft_discovery_date",
+          "canonical": "2026-02-26",
+          "surface": "26/02/2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "06:50",
+          "surface": "06:50"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Street parking outside 12 Shivranjani Cross Road, Ahmedabad",
+          "surface": "Street parking outside 12 Shivranjani Cross Road, Ahmedabad"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "68000",
+          "surface": "68,000"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-02-26",
+          "surface": "26/02/2026"
+        },
+        {
+          "field": "document_submission_date",
+          "canonical": "2026-02-27",
+          "surface": "27/02/2026"
+        }
+      ]
+    },
+    "CUSTOMER_NARRATIVE": {
+      "path": "data/claims/C05/customer_narrative.md",
+      "fields": [
+        {
+          "field": "theft_discovery_date",
+          "canonical": "2026-02-26",
+          "surface": "26 February 2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "06:50",
+          "surface": "ten to seven"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Street parking outside 12 Shivranjani Cross Road, Ahmedabad",
+          "surface": "Shivranjani Cross Road"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-02-26",
+          "surface": "the same morning"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Nikhil Patel",
+          "surface": "Nikhil Patel"
+        }
+      ]
+    }
+  }
+}

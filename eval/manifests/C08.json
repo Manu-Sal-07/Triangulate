@@ -1,0 +1,171 @@
+{
+  "case_id": "C08",
+  "claim_type": "accident",
+  "documents": {
+    "CLAIM_FORM": {
+      "path": "data/claims/C08/claim_form.md",
+      "fields": [
+        {
+          "field": "insured_name",
+          "canonical": "Thomas Varghese",
+          "surface": "Thomas Varghese"
+        },
+        {
+          "field": "vehicle_make_model",
+          "canonical": "Honda City V CVT (2020)",
+          "surface": "Honda City V CVT (2020)"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "KL-07-BQ-5512",
+          "surface": "KL-07-BQ-5512"
+        },
+        {
+          "field": "engine_capacity_cc",
+          "canonical": "1498",
+          "surface": "1498"
+        },
+        {
+          "field": "insured_declared_value",
+          "canonical": "560000",
+          "surface": "5,60,000"
+        },
+        {
+          "field": "driving_licence_expiry_date",
+          "canonical": "2026-01-31",
+          "surface": "31/01/2026"
+        },
+        {
+          "field": "driver_name",
+          "canonical": "Thomas Varghese",
+          "surface": "Thomas Varghese"
+        },
+        {
+          "field": "incident_date",
+          "canonical": "2026-04-08",
+          "surface": "08/04/2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "08:15",
+          "surface": "08:15"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Seaport-Airport Road, Kakkanad, Kochi",
+          "surface": "Seaport-Airport Road, Kakkanad, Kochi"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front-right",
+          "surface": "front-right"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "78300",
+          "surface": "78,300"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-04-08",
+          "surface": "08/04/2026"
+        },
+        {
+          "field": "document_submission_date",
+          "canonical": "2026-04-10",
+          "surface": "10/04/2026"
+        }
+      ]
+    },
+    "REPAIR_ESTIMATE": {
+      "path": "data/claims/C08/repair_estimate.md",
+      "fields": [
+        {
+          "field": "vehicle_reg",
+          "canonical": "KL-07-BQ-5512",
+          "surface": "KL07BQ5512"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Thomas Varghese",
+          "surface": "Thomas Varghese"
+        },
+        {
+          "field": "estimate_date",
+          "canonical": "2026-04-10",
+          "surface": "10-Apr-2026"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front-right",
+          "surface": "Front right impact damage"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "27400",
+          "surface": "27400.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "23900",
+          "surface": "23900.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "12600",
+          "surface": "12600.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "14400",
+          "surface": "14400.00"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "78300",
+          "surface": "78300.00"
+        }
+      ]
+    },
+    "CUSTOMER_NARRATIVE": {
+      "path": "data/claims/C08/customer_narrative.md",
+      "fields": [
+        {
+          "field": "incident_date",
+          "canonical": "2026-04-08",
+          "surface": "8 April 2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "08:15",
+          "surface": "around 8.15"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Seaport-Airport Road, Kakkanad, Kochi",
+          "surface": "Seaport-Airport Road"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front-right",
+          "surface": "Damage is on the front right"
+        },
+        {
+          "field": "vehicle_use",
+          "canonical": "commercial",
+          "surface": "I had just dropped a passenger at the Infopark gate"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-04-08",
+          "surface": "the same morning"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Thomas Varghese",
+          "surface": "Thomas Varghese"
+        }
+      ]
+    }
+  }
+}

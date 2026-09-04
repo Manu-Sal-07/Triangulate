@@ -1,0 +1,166 @@
+{
+  "case_id": "C01",
+  "claim_type": "accident",
+  "documents": {
+    "CLAIM_FORM": {
+      "path": "data/claims/C01/claim_form.md",
+      "fields": [
+        {
+          "field": "insured_name",
+          "canonical": "Priya Deshmukh",
+          "surface": "Priya Deshmukh"
+        },
+        {
+          "field": "vehicle_make_model",
+          "canonical": "Maruti Suzuki Swift VXi (2021)",
+          "surface": "Maruti Suzuki Swift VXi (2021)"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "MH-12-AB-1234",
+          "surface": "MH-12-AB-1234"
+        },
+        {
+          "field": "engine_capacity_cc",
+          "canonical": "1197",
+          "surface": "1197"
+        },
+        {
+          "field": "insured_declared_value",
+          "canonical": "450000",
+          "surface": "4,50,000"
+        },
+        {
+          "field": "driving_licence_expiry_date",
+          "canonical": "2029-07-15",
+          "surface": "15/07/2029"
+        },
+        {
+          "field": "driver_name",
+          "canonical": "Priya Deshmukh",
+          "surface": "Priya Deshmukh"
+        },
+        {
+          "field": "incident_date",
+          "canonical": "2026-03-02",
+          "surface": "02/03/2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "09:40",
+          "surface": "09:40"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Baner Road, Pune",
+          "surface": "Baner Road, Pune"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front-left",
+          "surface": "front-left"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "38500",
+          "surface": "38,500"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-03-02",
+          "surface": "02/03/2026"
+        },
+        {
+          "field": "document_submission_date",
+          "canonical": "2026-03-04",
+          "surface": "04/03/2026"
+        }
+      ]
+    },
+    "REPAIR_ESTIMATE": {
+      "path": "data/claims/C01/repair_estimate.md",
+      "fields": [
+        {
+          "field": "vehicle_reg",
+          "canonical": "MH-12-AB-1234",
+          "surface": "MH12AB1234"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Priya Deshmukh",
+          "surface": "Priya Deshmukh"
+        },
+        {
+          "field": "estimate_date",
+          "canonical": "2026-03-04",
+          "surface": "04-Mar-2026"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front-left",
+          "surface": "Front left impact damage"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "14200",
+          "surface": "14200.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "11800",
+          "surface": "11800.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "12500",
+          "surface": "12500.00"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "38500",
+          "surface": "38500.00"
+        }
+      ]
+    },
+    "CUSTOMER_NARRATIVE": {
+      "path": "data/claims/C01/customer_narrative.md",
+      "fields": [
+        {
+          "field": "incident_date",
+          "canonical": "2026-03-02",
+          "surface": "2 March 2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "09:40",
+          "surface": "9.40 am"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Baner Road, Pune",
+          "surface": "Baner Road"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front-left",
+          "surface": "front left fender"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-03-02",
+          "surface": "the same afternoon"
+        },
+        {
+          "field": "intimation_time",
+          "canonical": "14:20",
+          "surface": "2.20 pm"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Priya Deshmukh",
+          "surface": "Priya Deshmukh"
+        }
+      ]
+    }
+  }
+}

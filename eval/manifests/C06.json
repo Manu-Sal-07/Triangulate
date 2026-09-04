@@ -1,0 +1,166 @@
+{
+  "case_id": "C06",
+  "claim_type": "accident",
+  "documents": {
+    "CLAIM_FORM": {
+      "path": "data/claims/C06/claim_form.md",
+      "fields": [
+        {
+          "field": "insured_name",
+          "canonical": "Sunita Kulkarni",
+          "surface": "Sunita Kulkarni"
+        },
+        {
+          "field": "vehicle_make_model",
+          "canonical": "Tata Nexon XZ+ (2023)",
+          "surface": "Tata Nexon XZ+ (2023)"
+        },
+        {
+          "field": "vehicle_reg",
+          "canonical": "MH-14-GT-7781",
+          "surface": "MH-14-GT-7781"
+        },
+        {
+          "field": "engine_capacity_cc",
+          "canonical": "1199",
+          "surface": "1199"
+        },
+        {
+          "field": "insured_declared_value",
+          "canonical": "840000",
+          "surface": "8,40,000"
+        },
+        {
+          "field": "driving_licence_expiry_date",
+          "canonical": "2030-06-12",
+          "surface": "12/06/2030"
+        },
+        {
+          "field": "driver_name",
+          "canonical": "Sunita Kulkarni",
+          "surface": "Sunita Kulkarni"
+        },
+        {
+          "field": "incident_date",
+          "canonical": "2026-03-21",
+          "surface": "21/03/2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "19:05",
+          "surface": "19:05"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Mumbai-Bengaluru Highway service road, Warje, Pune",
+          "surface": "Mumbai-Bengaluru Highway service road, Warje, Pune"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front",
+          "surface": "front"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "112400",
+          "surface": "1,12,400"
+        },
+        {
+          "field": "intimation_date",
+          "canonical": "2026-03-21",
+          "surface": "21/03/2026"
+        },
+        {
+          "field": "document_submission_date",
+          "canonical": "2026-03-24",
+          "surface": "24/03/2026"
+        }
+      ]
+    },
+    "REPAIR_ESTIMATE": {
+      "path": "data/claims/C06/repair_estimate.md",
+      "fields": [
+        {
+          "field": "vehicle_reg",
+          "canonical": "MH-14-GT-7781",
+          "surface": "MH14GT7781"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Sunita Kulkarni",
+          "surface": "Sunita Kulkarni"
+        },
+        {
+          "field": "estimate_date",
+          "canonical": "2026-03-24",
+          "surface": "24-Mar-2026"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front and rear",
+          "surface": "Front and rear impact damage"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "21600",
+          "surface": "21600.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "12300",
+          "surface": "12300.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "24800",
+          "surface": "24800.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "19400",
+          "surface": "19400.00"
+        },
+        {
+          "field": "estimate_line_amount",
+          "canonical": "34300",
+          "surface": "34300.00"
+        },
+        {
+          "field": "claim_amount",
+          "canonical": "112400",
+          "surface": "112400.00"
+        }
+      ]
+    },
+    "CUSTOMER_NARRATIVE": {
+      "path": "data/claims/C06/customer_narrative.md",
+      "fields": [
+        {
+          "field": "incident_date",
+          "canonical": "2026-03-21",
+          "surface": "21 March 2026"
+        },
+        {
+          "field": "incident_time",
+          "canonical": "19:05",
+          "surface": "about 7 pm"
+        },
+        {
+          "field": "incident_location",
+          "canonical": "Mumbai-Bengaluru Highway service road, Warje, Pune",
+          "surface": "service road at Warje"
+        },
+        {
+          "field": "damage_location",
+          "canonical": "front",
+          "surface": "The front of the car hit the divider straight on"
+        },
+        {
+          "field": "insured_name",
+          "canonical": "Sunita Kulkarni",
+          "surface": "Sunita Kulkarni"
+        }
+      ]
+    }
+  }
+}
