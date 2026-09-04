@@ -1,0 +1,522 @@
+{
+  "ledger_version": "1.0",
+  "policy_id": "MOTOR-OD-THEFT-2026",
+  "method_note": "Ground truth is authored here first; the claim documents in data/claims/ are rendered from it in phase 2, and eval/verify_corpus.py asserts the rendered documents still contain exactly what is declared here. The application never reads this file (CLAUDE.md 2.8). 'facts' holds canonical normalised values - surface variation (date formats, currency formats, field labels) is added at render time and is declared under near_misses, not here.",
+  "field_glossary": {
+    "incident_date": "date the insured event occurred",
+    "incident_time": "time of day of the incident, 24h",
+    "intimation_date": "date the claim was intimated to the insurer, drives C-06",
+    "theft_discovery_date": "date the theft was discovered, drives C-07",
+    "fir_date": "date the First Information Report was lodged, drives C-07",
+    "document_submission_date": "date the document set was submitted, drives C-08",
+    "claim_amount": "amount claimed in rupees, drives C-04",
+    "insured_declared_value": "IDV from the policy schedule in rupees, drives C-04",
+    "vehicle_class": "two_wheeler | private_car, drives C-05",
+    "engine_capacity_cc": "engine capacity, drives C-05 band selection",
+    "driving_licence_expiry_date": "drives C-11; must be present on every accident claim form or C-11 returns UNKNOWN",
+    "damage_location": "point of impact as reported, compared against the repair estimate for C-16"
+  },
+  "cases": [
+    {
+      "case_id": "C01",
+      "title": "Routine own-damage claim, nothing wrong",
+      "claim_type": "accident",
+      "expected_recommendation": "APPROVE",
+      "expected_finding_count": 0,
+      "documents": ["CLAIM_FORM", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "facts": {
+        "policy_number": "MOTOR/2025/PN/44817",
+        "insured_name": "Priya Deshmukh",
+        "driver_name": "Priya Deshmukh",
+        "vehicle_make_model": "Maruti Suzuki Swift VXi (2021)",
+        "vehicle_reg": "MH-12-AB-1234",
+        "vehicle_class": "private_car",
+        "engine_capacity_cc": 1197,
+        "insured_declared_value": 450000,
+        "claim_amount": 38500,
+        "incident_date": "2026-03-02",
+        "incident_time": "09:40",
+        "incident_location": "Baner Road, Pune",
+        "incident_summary": "Sideswiped by an auto-rickshaw changing lanes; damage to the front-left fender and headlamp.",
+        "damage_location": "front-left",
+        "intimation_date": "2026-03-02",
+        "document_submission_date": "2026-03-04",
+        "driving_licence_expiry_date": "2029-07-15",
+        "estimate_lines": [
+          {"part_code": "SWF-FL-FEN", "description": "Front left fender - replace", "amount": 14200},
+          {"part_code": "SWF-HL-LH", "description": "Headlamp assembly LH - replace", "amount": 11800},
+          {"part_code": "LAB-PNT", "description": "Paint and labour, two panels", "amount": 12500}
+        ]
+      },
+      "planted": [],
+      "near_misses": [],
+      "why_this_case_exists": "The baseline. A clean claim must come back clean with no manufactured concerns; a regression here is the most damaging failure mode we have."
+    },
+    {
+      "case_id": "C02",
+      "title": "Theft claim, FIR present and timely",
+      "claim_type": "theft",
+      "expected_recommendation": "APPROVE",
+      "expected_finding_count": 0,
+      "documents": ["CLAIM_FORM", "FIR", "CUSTOMER_NARRATIVE"],
+      "facts": {
+        "policy_number": "MOTOR/2025/BLR/20934",
+        "insured_name": "Anand Raghavan",
+        "vehicle_make_model": "Honda Activa 6G (2022)",
+        "vehicle_reg": "KA-05-MJ-8871",
+        "vehicle_class": "two_wheeler",
+        "engine_capacity_cc": 109,
+        "insured_declared_value": 72000,
+        "claim_amount": 72000,
+        "theft_discovery_date": "2026-02-11",
+        "incident_date": "2026-02-11",
+        "incident_time": "07:15",
+        "incident_location": "Apartment basement parking, 4th Block Jayanagar, Bengaluru",
+        "incident_summary": "Vehicle found missing from the basement parking bay on the morning of 11 February.",
+        "intimation_date": "2026-02-11",
+        "fir_date": "2026-02-11",
+        "fir_number": "0112/2026",
+        "police_station": "Jayanagar Police Station, Bengaluru South",
+        "document_submission_date": "2026-02-13"
+      },
+      "planted": [],
+      "near_misses": [
+        {
+          "field": "claim_amount",
+          "what_differed": "claim amount of Rs 72,000 is exactly equal to the IDV of Rs 72,000",
+          "why_dismissed": "C-04 caps a claim that exceeds the IDV; a claim equal to it is within the limit",
+          "must_not_flag": true
+        }
+      ],
+      "why_this_case_exists": "The second clean case, and a boundary test: total loss settled at exactly the IDV must not trip the cap in C-04."
+    },
+    {
+      "case_id": "C03",
+      "title": "Clean but superficially odd - large claim, incident at 02:35",
+      "claim_type": "accident",
+      "expected_recommendation": "APPROVE",
+      "expected_finding_count": 0,
+      "documents": ["CLAIM_FORM", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "facts": {
+        "policy_number": "MOTOR/2025/CHN/71260",
+        "insured_name": "Lakshmi Narayanan",
+        "driver_name": "Lakshmi Narayanan",
+        "vehicle_make_model": "Toyota Innova Crysta 2.4 GX (2019)",
+        "vehicle_reg": "TN-09-BX-4420",
+        "vehicle_class": "private_car",
+        "engine_capacity_cc": 2393,
+        "insured_declared_value": 1280000,
+        "claim_amount": 294750,
+        "incident_date": "2026-01-19",
+        "incident_time": "02:35",
+        "incident_location": "NH-48 near Sriperumbudur, Tamil Nadu",
+        "incident_summary": "Struck stray cattle on the highway while returning from Kilpauk Medical College Hospital after a family emergency; front end and radiator damaged.",
+        "damage_location": "front",
+        "intimation_date": "2026-01-19",
+        "document_submission_date": "2026-01-22",
+        "driving_licence_expiry_date": "2031-04-30",
+        "estimate_lines": [
+          {"part_code": "INV-BON-A", "description": "Bonnet assembly - replace", "amount": 46800},
+          {"part_code": "INV-GRL", "description": "Front grille and bumper - replace", "amount": 38400},
+          {"part_code": "INV-RAD", "description": "Radiator and condenser - replace", "amount": 71250},
+          {"part_code": "INV-HL-RH", "description": "Headlamp assembly RH - replace", "amount": 29800},
+          {"part_code": "LAB-STR", "description": "Structural straightening and alignment", "amount": 58500},
+          {"part_code": "LAB-PNT", "description": "Paint, four panels", "amount": 50000}
+        ]
+      },
+      "planted": [],
+      "near_misses": [
+        {
+          "field": "incident_time",
+          "what_differed": "incident occurred at 02:35, outside normal driving hours",
+          "why_dismissed": "no clause in the policy restricts the time of day at which cover applies",
+          "must_not_flag": true
+        },
+        {
+          "field": "claim_amount",
+          "what_differed": "claim of Rs 2,94,750 is large in absolute terms",
+          "why_dismissed": "well within the IDV of Rs 12,80,000 and consistent with the estimate line items",
+          "must_not_flag": true
+        }
+      ],
+      "why_this_case_exists": "Proves the system does not flag on suspicion. A night-time incident and a large amount are the two things a naive reviewer would escalate, and neither breaches any clause."
+    },
+    {
+      "case_id": "C04",
+      "title": "Incident date conflicts between claim form and FIR, and the conflict decides the intimation window",
+      "claim_type": "accident",
+      "expected_recommendation": "ESCALATE",
+      "expected_finding_count": 1,
+      "documents": ["CLAIM_FORM", "FIR", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "facts": {
+        "policy_number": "MOTOR/2025/DEL/38115",
+        "insured_name": "Farhan Qureshi",
+        "driver_name": "Farhan Qureshi",
+        "vehicle_make_model": "Hyundai i20 Sportz (2022)",
+        "vehicle_reg": "DL-8C-AF-3092",
+        "vehicle_class": "private_car",
+        "engine_capacity_cc": 1197,
+        "insured_declared_value": 620000,
+        "claim_amount": 57800,
+        "incident_date": "2026-03-14",
+        "incident_time": "20:10",
+        "incident_location": "Ring Road near Lajpat Nagar, New Delhi",
+        "incident_summary": "Rear-ended at a signal by a light commercial vehicle; rear bumper, boot lid and tail lamp damaged.",
+        "damage_location": "rear",
+        "intimation_date": "2026-03-15",
+        "fir_date": "2026-03-15",
+        "fir_number": "0287/2026",
+        "police_station": "Lajpat Nagar Police Station, New Delhi",
+        "document_submission_date": "2026-03-17",
+        "driving_licence_expiry_date": "2028-11-20",
+        "estimate_lines": [
+          {"part_code": "I20-RB-ASY", "description": "Rear bumper assembly - replace", "amount": 18400},
+          {"part_code": "I20-BOOT", "description": "Boot lid - repair and refinish", "amount": 16900},
+          {"part_code": "I20-TL-LH", "description": "Tail lamp LH - replace", "amount": 9700},
+          {"part_code": "LAB-PNT", "description": "Paint and labour, two panels", "amount": 12800}
+        ]
+      },
+      "planted": [
+        {
+          "klass": "CONTRADICTION",
+          "field": "incident_date",
+          "severity": "material",
+          "drives_recommendation": true,
+          "detail": "claim form states 14 March 2026, the FIR states 12 March 2026",
+          "values": {"CLAIM_FORM": "2026-03-14", "FIR": "2026-03-12"},
+          "consequence": "The intimation on 15 March is within the 48 hour window in C-06 if the incident was on the 14th and outside it if the incident was on the 12th, so the disagreement decides whether a policy condition was breached. It cannot be resolved from the packet.",
+          "expected_citations": ["CLAIM_FORM", "FIR"]
+        }
+      ],
+      "near_misses": [
+        {
+          "field": "vehicle_reg",
+          "what_differed": "DL-8C-AF-3092 on the claim form, DL8CAF3092 on the repair estimate",
+          "why_dismissed": "identical registration after normalisation",
+          "must_not_flag": true
+        },
+        {
+          "field": "C-06",
+          "what_differed": "the intimation window check has a contradicted input",
+          "why_dismissed": "C-06 must return UNKNOWN rather than choosing one of the two dates; emitting a cited POLICY_DEVIATION from a disputed value would be a false finding wearing a citation",
+          "must_not_flag": true
+        }
+      ],
+      "why_this_case_exists": "The signature contradiction case. It also tests that a deterministic check refuses to evaluate on a disputed input instead of silently picking a side."
+    },
+    {
+      "case_id": "C05",
+      "title": "Theft claim with no FIR in the packet",
+      "claim_type": "theft",
+      "expected_recommendation": "REQUEST_INFO",
+      "expected_finding_count": 1,
+      "documents": ["CLAIM_FORM", "CUSTOMER_NARRATIVE"],
+      "facts": {
+        "policy_number": "MOTOR/2025/AHM/50472",
+        "insured_name": "Nikhil Patel",
+        "vehicle_make_model": "Bajaj Pulsar 150 (2021)",
+        "vehicle_reg": "GJ-01-KL-2264",
+        "vehicle_class": "two_wheeler",
+        "engine_capacity_cc": 149,
+        "insured_declared_value": 68000,
+        "claim_amount": 68000,
+        "theft_discovery_date": "2026-02-26",
+        "incident_date": "2026-02-26",
+        "incident_time": "06:50",
+        "incident_location": "Street parking outside 12 Shivranjani Cross Road, Ahmedabad",
+        "incident_summary": "Vehicle parked on the street overnight and found missing early the next morning.",
+        "intimation_date": "2026-02-26",
+        "document_submission_date": "2026-02-27"
+      },
+      "planted": [
+        {
+          "klass": "INCOMPLETENESS",
+          "field": "FIR",
+          "severity": "blocking",
+          "drives_recommendation": true,
+          "detail": "C-10 requires a copy of the First Information Report for a theft claim and no FIR is present in the packet",
+          "consequence": "Blocking incompleteness, so the review requests the FIR by name rather than assessing the claim on an incomplete packet.",
+          "expected_citations": ["C-10"]
+        }
+      ],
+      "near_misses": [
+        {
+          "field": "C-07",
+          "what_differed": "the FIR window check has no fir_date to evaluate",
+          "why_dismissed": "the absent FIR is already reported once by C-10; C-07 must return UNKNOWN rather than reporting the same absence a second time as a missed deadline",
+          "must_not_flag": true
+        }
+      ],
+      "why_this_case_exists": "Absence is a finding, and it must be reported exactly once. Double-reporting one absence as both a missing document and a missed deadline is a real failure mode."
+    },
+    {
+      "case_id": "C06",
+      "title": "Repair estimate bills rear-end parts against a front-impact narrative",
+      "claim_type": "accident",
+      "expected_recommendation": "ESCALATE",
+      "expected_finding_count": 2,
+      "documents": ["CLAIM_FORM", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "facts": {
+        "policy_number": "MOTOR/2025/PN/61903",
+        "insured_name": "Sunita Kulkarni",
+        "driver_name": "Sunita Kulkarni",
+        "vehicle_make_model": "Tata Nexon XZ+ (2023)",
+        "vehicle_reg": "MH-14-GT-7781",
+        "vehicle_class": "private_car",
+        "engine_capacity_cc": 1199,
+        "insured_declared_value": 840000,
+        "claim_amount": 112400,
+        "incident_date": "2026-03-21",
+        "incident_time": "19:05",
+        "incident_location": "Mumbai-Bengaluru Highway service road, Warje, Pune",
+        "incident_summary": "Swerved to avoid a stopped vehicle and struck the concrete road divider head on; the front of the car took the impact.",
+        "damage_location": "front",
+        "intimation_date": "2026-03-21",
+        "document_submission_date": "2026-03-24",
+        "driving_licence_expiry_date": "2030-06-12",
+        "estimate_lines": [
+          {"part_code": "NXN-RB-ASY", "description": "Rear bumper assembly - replace", "amount": 21600},
+          {"part_code": "NXN-TL-RH", "description": "Tail lamp RH - replace", "amount": 12300},
+          {"part_code": "NXN-FB-ASY", "description": "Front bumper assembly - replace", "amount": 24800},
+          {"part_code": "NXN-BON", "description": "Bonnet - repair and refinish", "amount": 19400},
+          {"part_code": "LAB-PNT", "description": "Paint and labour, four panels", "amount": 34300}
+        ]
+      },
+      "planted": [
+        {
+          "klass": "CONTRADICTION",
+          "field": "damage_location",
+          "severity": "material",
+          "drives_recommendation": true,
+          "detail": "the claim form and customer narrative both describe a front impact, while the repair estimate bills a rear bumper assembly and a rear tail lamp",
+          "values": {"CLAIM_FORM": "front", "CUSTOMER_NARRATIVE": "front", "REPAIR_ESTIMATE": "front and rear"},
+          "consequence": "The documents disagree about which part of the vehicle was damaged, which cannot be resolved from the packet and requires a surveyor.",
+          "expected_citations": ["CUSTOMER_NARRATIVE", "REPAIR_ESTIMATE"]
+        },
+        {
+          "klass": "POLICY_DEVIATION",
+          "field": "damage_location",
+          "clause_id": "C-16",
+          "severity": "material",
+          "evaluation": "semantic",
+          "drives_recommendation": false,
+          "detail": "C-16 requires the repair estimate to relate to the damage reported; rear-end parts billed against a front impact do not",
+          "consequence": "A model-proposed clause application, capped at material by ADR-001, so it escalates rather than rejecting.",
+          "expected_citations": ["REPAIR_ESTIMATE", "C-16"]
+        }
+      ],
+      "near_misses": [],
+      "why_this_case_exists": "One fact produces two findings of different classes that must not be collapsed: the documents disagreeing with each other is a CONTRADICTION, the estimate not relating to the reported damage is a POLICY_DEVIATION under C-16. Both are true and they say different things to the investigator."
+    },
+    {
+      "case_id": "C07",
+      "title": "Claim amount exceeds the insured declared value",
+      "claim_type": "accident",
+      "expected_recommendation": "APPROVE_CAPPED",
+      "expected_finding_count": 1,
+      "documents": ["CLAIM_FORM", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "facts": {
+        "policy_number": "MOTOR/2025/JAI/17558",
+        "insured_name": "Meera Chauhan",
+        "driver_name": "Meera Chauhan",
+        "vehicle_make_model": "Maruti Suzuki Alto K10 (2016)",
+        "vehicle_reg": "RJ-14-CV-9083",
+        "vehicle_class": "private_car",
+        "engine_capacity_cc": 796,
+        "insured_declared_value": 185000,
+        "claim_amount": 212000,
+        "incident_date": "2026-02-05",
+        "incident_time": "11:20",
+        "incident_location": "Tonk Road, Jaipur",
+        "incident_summary": "Hit from the side by a car jumping a signal; extensive damage across both left-side doors, the B-pillar and the left suspension.",
+        "damage_location": "left side",
+        "intimation_date": "2026-02-05",
+        "document_submission_date": "2026-02-08",
+        "driving_licence_expiry_date": "2027-09-30",
+        "estimate_lines": [
+          {"part_code": "ALT-DR-FL", "description": "Front left door - replace", "amount": 31500},
+          {"part_code": "ALT-DR-RL", "description": "Rear left door - replace", "amount": 29800},
+          {"part_code": "ALT-BP-L", "description": "B-pillar section - straighten and reinforce", "amount": 42700},
+          {"part_code": "ALT-SUS-L", "description": "Left front suspension assembly - replace", "amount": 54600},
+          {"part_code": "LAB-PNT", "description": "Paint and labour, five panels", "amount": 53400}
+        ]
+      },
+      "planted": [
+        {
+          "klass": "POLICY_DEVIATION",
+          "field": "claim_amount",
+          "clause_id": "C-04",
+          "severity": "informational",
+          "drives_recommendation": true,
+          "detail": "claimed Rs 2,12,000 against an IDV of Rs 1,85,000, a ratio of 1.15",
+          "consequence": "Below the 1.5 escalation ratio, so the excess is arithmetic rather than a defect: settlement is capped at the IDV and the report shows claimed Rs 2,12,000, payable Rs 1,85,000, difference Rs 27,000.",
+          "expected_citations": ["CLAIM_FORM", "C-04"]
+        }
+      ],
+      "near_misses": [
+        {
+          "field": "claim_amount",
+          "what_differed": "Rs. 2,12,000 on the claim form, 212000.00 as the estimate total",
+          "why_dismissed": "identical amount after currency normalisation",
+          "must_not_flag": true
+        }
+      ],
+      "why_this_case_exists": "The only case that reaches APPROVE_CAPPED, and it tests that an ordinary excess stays informational rather than escalating. The 1.5 ratio exists so that a claim at three times the IDV is treated as a different event; this claim is deliberately below it."
+    },
+    {
+      "case_id": "C08",
+      "title": "Driving licence had expired before the incident, with a commercial-use concern alongside it",
+      "claim_type": "accident",
+      "expected_recommendation": "REJECT",
+      "expected_finding_count": 2,
+      "documents": ["CLAIM_FORM", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "facts": {
+        "policy_number": "MOTOR/2025/KOC/29644",
+        "insured_name": "Thomas Varghese",
+        "driver_name": "Thomas Varghese",
+        "vehicle_make_model": "Honda City V CVT (2020)",
+        "vehicle_reg": "KL-07-BQ-5512",
+        "vehicle_class": "private_car",
+        "engine_capacity_cc": 1498,
+        "insured_declared_value": 560000,
+        "claim_amount": 78300,
+        "incident_date": "2026-04-08",
+        "incident_time": "08:15",
+        "incident_location": "Seaport-Airport Road, Kakkanad, Kochi",
+        "incident_summary": "Collided with a stationary tempo while pulling out; front right quarter panel and headlamp damaged.",
+        "damage_location": "front-right",
+        "intimation_date": "2026-04-08",
+        "document_submission_date": "2026-04-10",
+        "driving_licence_expiry_date": "2026-01-31",
+        "estimate_lines": [
+          {"part_code": "CTY-QP-FR", "description": "Front right quarter panel - replace", "amount": 27400},
+          {"part_code": "CTY-HL-RH", "description": "Headlamp assembly RH - replace", "amount": 23900},
+          {"part_code": "CTY-FB-ASY", "description": "Front bumper assembly - repair and refinish", "amount": 12600},
+          {"part_code": "LAB-PNT", "description": "Paint and labour, three panels", "amount": 14400}
+        ]
+      },
+      "planted": [
+        {
+          "klass": "POLICY_DEVIATION",
+          "field": "driving_licence_expiry_date",
+          "clause_id": "C-11",
+          "severity": "blocking",
+          "evaluation": "machine",
+          "drives_recommendation": true,
+          "detail": "licence expired 31 January 2026, incident occurred 8 April 2026",
+          "consequence": "A machine-checkable exclusion on a date comparison, so it is permitted to be blocking and the recommendation is REJECT with C-11 quoted.",
+          "expected_citations": ["CLAIM_FORM", "C-11"]
+        },
+        {
+          "klass": "POLICY_DEVIATION",
+          "field": "vehicle_use",
+          "clause_id": "C-13",
+          "severity": "material",
+          "evaluation": "semantic",
+          "drives_recommendation": false,
+          "detail": "the customer narrative describes dropping off a paying passenger before the incident, which C-13 excludes",
+          "consequence": "A model proposal, capped at material. It is reported as a finding but does not drive the recommendation, which is already determined by the deterministic exclusion above it in the ordering.",
+          "expected_citations": ["CUSTOMER_NARRATIVE", "C-13"]
+        }
+      ],
+      "near_misses": [],
+      "why_this_case_exists": "The only case that reaches REJECT, and it demonstrates the authority split in one packet: a deterministic date comparison rejects, while a model-proposed exclusion that a human might consider more serious is reported but subordinate. A finding that does not drive the recommendation must still appear in the report."
+    },
+    {
+      "case_id": "C09",
+      "title": "Clean claim buried under near-misses",
+      "claim_type": "accident",
+      "expected_recommendation": "APPROVE",
+      "expected_finding_count": 0,
+      "documents": ["CLAIM_FORM", "FIR", "REPAIR_ESTIMATE", "CUSTOMER_NARRATIVE"],
+      "facts": {
+        "policy_number": "MOTOR/2025/LKO/83201",
+        "insured_name": "Rajesh Kumar Singh",
+        "driver_name": "Rajesh Kumar Singh",
+        "vehicle_make_model": "Mahindra XUV300 W8 (2021)",
+        "vehicle_reg": "UP-32-DN-6647",
+        "vehicle_class": "private_car",
+        "engine_capacity_cc": 1497,
+        "insured_declared_value": 710000,
+        "claim_amount": 64900,
+        "estimate_subtotal": 55000,
+        "estimate_gst_percent": 18,
+        "incident_date": "2026-02-12",
+        "incident_time": "18:30",
+        "incident_location": "Faizabad Road near Indira Nagar, Lucknow",
+        "incident_summary": "A two-wheeler collided with the rear left of the car at a junction; rear left door and quarter panel dented.",
+        "damage_location": "rear-left",
+        "intimation_date": "2026-02-13",
+        "fir_date": "2026-02-14",
+        "fir_number": "0431/2026",
+        "police_station": "Indira Nagar Police Station, Lucknow",
+        "document_submission_date": "2026-02-16",
+        "driving_licence_expiry_date": "2029-03-22",
+        "estimate_lines": [
+          {"part_code": "XUV-DR-RL", "description": "Rear left door - repair and refinish", "amount": 18600},
+          {"part_code": "XUV-QP-RL", "description": "Rear left quarter panel - dent removal", "amount": 14900},
+          {"part_code": "LAB-PNT", "description": "Paint and labour, two panels", "amount": 21500}
+        ]
+      },
+      "planted": [],
+      "near_misses": [
+        {
+          "field": "vehicle_reg",
+          "what_differed": "UP-32-DN-6647 on the claim form, UP32DN6647 on the repair estimate, U.P. 32 DN 6647 in the FIR",
+          "why_dismissed": "identical registration after normalisation",
+          "must_not_flag": true
+        },
+        {
+          "field": "incident_date",
+          "what_differed": "12/02/2026 on the claim form, 12-Feb-2026 on the estimate, February 12, 2026 in the narrative",
+          "why_dismissed": "identical date after parsing; the day-first format is unambiguous here because 12 is a valid month and day but all three sources agree once parsed",
+          "must_not_flag": true
+        },
+        {
+          "field": "claim_amount",
+          "what_differed": "Rs. 64,900 on the claim form, 64900.00 as the estimate total",
+          "why_dismissed": "identical amount after currency normalisation",
+          "must_not_flag": true
+        },
+        {
+          "field": "estimate_total",
+          "what_differed": "estimate line items sum to Rs 55,000 while the estimate total reads Rs 64,900",
+          "why_dismissed": "the difference is 18 percent GST stated on the estimate; the totals reconcile once tax is accounted for",
+          "must_not_flag": true
+        },
+        {
+          "field": "insured_name",
+          "what_differed": "Rajesh Kumar Singh on the claim form, R. K. Singh in the FIR, Rajesh K Singh on the estimate",
+          "why_dismissed": "same person after name normalisation of initials",
+          "must_not_flag": true
+        },
+        {
+          "field": "incident_time",
+          "what_differed": "18:30 on the claim form, approximately 6.30 in the evening in the narrative",
+          "why_dismissed": "identical time after normalisation; the narrative is approximate by its own wording",
+          "must_not_flag": true
+        },
+        {
+          "field": "fir_date",
+          "what_differed": "the FIR was lodged on 14 February, two days after the incident on the 12th",
+          "why_dismissed": "C-07 imposes a 72 hour FIR window on theft claims only; no clause imposes an FIR deadline on an own-damage claim, and this FIR is in any case within 72 hours",
+          "must_not_flag": true
+        }
+      ],
+      "why_this_case_exists": "The calibration case. Seven things look wrong and none of them are. Every one must appear under considered and dismissed with its reason, and none may appear as a finding. If a near-miss leaks into findings as informational, the clean cases stop looking clean and the calibration story is gone."
+    },
+    {
+      "case_id": "C10",
+      "title": "Held-out theft case - authored after code freeze",
+      "claim_type": "theft",
+      "expected_recommendation": null,
+      "expected_finding_count": null,
+      "documents": [],
+      "facts": {},
+      "planted": [],
+      "near_misses": [],
+      "status": "placeholder",
+      "why_this_case_exists": "Written after the detection code is frozen and never used during development, so its result is a genuine held-out measurement. The result is recorded honestly in the README including if it fails, because a caught miss with an explanation is worth more than a suspiciously perfect run."
+    }
+  ]
+}
