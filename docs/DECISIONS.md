@@ -78,3 +78,70 @@ nothing.
 - **Cost:** semantic clauses can never produce a rejection even when the model is plainly
   right, so some true rejections will surface as `ESCALATE` instead. We accept the weaker
   outcome in exchange for never rejecting a claim on unaccountable grounds.
+
+---
+
+## ADR-002 — Policy rules are typed parameters dispatched to named checkers
+
+**Status:** accepted · **Date:** 2026-09-05 · **Affects:** `data/policy/clauses.json`,
+`src/policy/`, `eval/verify_policy.py`
+
+### Context
+
+Eight of the sixteen clauses in `motor_policy.md` are mechanically checkable: three time
+windows, an IDV cap, a deductible that varies by vehicle class, two required-document lists,
+and licence validity on the incident date. Something has to connect a clause id in a data file
+to the code that evaluates it. Three shapes were considered:
+
+1. **Prose only** — the clause text carries the rule; a hand-written Python function per clause
+   hardcodes its numbers.
+2. **Typed parameters** — the clause names a checker and supplies its parameters; the checker is
+   written once per rule *shape*.
+3. **An expression language** — the clause carries a predicate string such as
+   `intimation_delay_hours <= 48`, parsed and evaluated at runtime.
+
+Shape 1 makes every new clause a code change. Shape 3 is attractive because it appears to remove
+per-clause code entirely.
+
+### Decision
+
+Shape 2. A machine-checkable clause carries `{"check": {"name": ..., "params": {...}}}`, and
+checkers are written per rule shape rather than per clause. Five checkers — `time_window`,
+`date_order`, `amount_cap`, `document_checklist`, `range_lookup` — cover all eight machine
+clauses; C-06, C-07 and C-08 are three different windows sharing one function.
+
+Every checker is a total function returning a triple, not a boolean:
+
+```
+CheckResult(status: PASS | FAIL | UNKNOWN, reason: str, inputs_used: list[FieldRef])
+```
+
+`eval/verify_policy.py` asserts that clause text in `clauses.json` still matches the
+corresponding paragraph in `motor_policy.md`, and asserts ADR-001's rule as an executable
+property of the data: no semantic clause may carry a severity above `material`.
+
+### Consequences
+
+- **Adding a clause of an existing shape is a data edit, not a code change** — the property that
+  made shape 3 attractive, retained without its costs.
+- **Checks can represent uncertainty, which an expression language cannot.** Inputs are extracted
+  from documents, so a field may be absent or contradicted between two documents. A boolean
+  predicate has two outcomes for a domain with three: coercing a missing intimation date to zero
+  makes `0 <= 48` true and silently certifies that a claim with no date was intimated on time.
+  `UNKNOWN` is what a window check must return when its input is missing (completeness reports
+  it) or disputed (the contradiction escalates and the policy layer stays quiet). Emitting a
+  cited `POLICY_DEVIATION` from a value that is actively in dispute would be worse than emitting
+  nothing.
+- **Findings build their own citations.** A checker declares the fields it read, so the citation
+  list is generated rather than maintained by hand.
+- **No runtime code evaluation.** Shape 3 would need `eval()` or a hand-written AST walker.
+- **The rule parameters are duplicated** between the clause sentence and the params block. The
+  text half is guarded by `verify_policy.py`; the numeric half is not, and is accepted at this
+  policy size.
+- **Not adopted, and why it would be at scale:** splitting each clause into a structural half and
+  a narrative half, so that one clause can be checked both ways. It is the right shape for a large
+  clause set, where most clauses carry both kinds of evidence. It needs two things this project
+  does not: a cascade that runs the semantic half only where the deterministic half returned
+  `UNKNOWN`, otherwise the escalation rate rises until triage stops being triage; and separate
+  clause entries rather than two halves of one clause, so there is never a merge rule in which a
+  model proposal overrides a deterministic pass.
