@@ -207,3 +207,57 @@ CLAUDE.md 2.8 forbids the application from reading `eval/`.
 - **Cost:** the narratives are hand-written, so an additional case costs prose rather than a
   configuration line. Accepted deliberately - that cost is what stops the corpus reading as
   machine-generated.
+
+---
+
+## ADR-004 — Each document is extracted in its own call, blind to the others
+
+**Status:** accepted · **Date:** 2026-09-05 · **Affects:** `src/extract/extractor.py`,
+`src/llm/gemini.py`, `src/extract/fields.py`
+
+### Context
+
+Extraction turns four claim documents into typed fields with provenance. Batching them into a
+single call is the obvious efficiency choice: one round trip, one prompt preamble, shared
+context. It presents as a cost decision.
+
+It is not one. The system exists to find places where documents disagree, and a language
+model's objective is coherent output. Given a claim form stating 14 March and an FIR stating
+12 March in the same context, and asked for the incident date of each, the model returns a
+single reconciled date - well-formed, confident and schema-valid. The reconciliation matrix
+then finds no disagreement, and the case that should escalate approves instead.
+
+Nothing errors. The corpus verifier still passes, because the documents are correct. The
+defect is in extraction and the symptom appears in reconciliation.
+
+### Decision
+
+One call per document, each prompt containing exactly one document, run concurrently with
+`asyncio.gather` and cached on `sha256(document_text)`.
+
+Supporting decisions taken at the same boundary:
+
+- **A closed field vocabulary** (`src/extract/fields.py`) shared by extraction and
+  reconciliation, with the prompt's field list generated from it so the two cannot drift.
+- **One exception type** from `src/llm/gemini.py` for every failure mode, and a failed
+  document returned as `status="failed"` rather than raised.
+- **Every returned quote checked against the source**, whitespace-normalised. An unverifiable
+  quote does not make its field trustworthy: the field survives marked low confidence.
+
+### Consequences
+
+- **Contradictions survive to Python.** This is the property the architecture depends on, and
+  it exists only because the readings are independent.
+- **A live edit re-extracts one document, not four.** Content-addressed caching makes the
+  per-document design cheaper on the interactive path, which is the path a reviewer uses.
+- **One unreadable document degrades rather than failing the packet**, satisfying CLAUDE.md 3.7
+  at the granularity where it is useful.
+- **Prompt injection is contained by construction.** Document text reaches one document's
+  extraction only; the response is constrained to a fixed vocabulary; quotes are verified
+  against the source; the decision is a pure Python function. An injected instruction has no
+  path to an outcome, so injection is handled by removing authority rather than by filtering -
+  filtering an open-ended input space is a losing game.
+- **Cost:** N calls per packet, and a closed vocabulary that cannot see a fact nobody
+  anticipated. Both accepted: the token cost is roughly the same text either way plus a small
+  per-call preamble, latency is reclaimed by concurrency, and a fact that cannot be compared
+  across documents is not useful to this system.
