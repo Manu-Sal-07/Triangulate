@@ -1,0 +1,32 @@
+# Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Secrets — never commit a key (CLAUDE.md 2.5, 2.6)
+.env
+.env.*
+*.key
+secrets.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Node / frontend tooling (the built frontend IS committed)
+node_modules/
+
+# Model weights
+*.bin
+*.pt
+*.safetensors
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
