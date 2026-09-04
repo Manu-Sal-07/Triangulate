@@ -1,0 +1,5 @@
+# Keep the corpus byte-identical on every platform, so that re-running the
+# deterministic renderer produces no diff on a fresh clone (tools/render_corpus.py).
+* text=auto eol=lf
+*.png binary
+*.pdf binary

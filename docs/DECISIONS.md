@@ -145,3 +145,65 @@ property of the data: no semantic clause may carry a severity above `material`.
   `UNKNOWN`, otherwise the escalation rate rises until triage stops being triage; and separate
   clause entries rather than two halves of one clause, so there is never a merge rule in which a
   model proposal overrides a deterministic pass.
+
+---
+
+## ADR-003 — The corpus is generated from the ledger and verified against a manifest
+
+**Status:** accepted · **Date:** 2026-09-05 · **Affects:** `tools/render_corpus.py`,
+`eval/verify_corpus.py`, `data/claims/`, `eval/manifests/`
+
+### Context
+
+Detection rates, false-alarm rates and near-miss suppression are all measured against the
+claim corpus. If a document stops containing the flaw the ledger says it contains, every one
+of those numbers is wrong and nothing reports an error. The corpus is generated, so this is
+not hypothetical: any edit to the ledger, the templates or the prose can decouple them.
+
+The obvious verification routes both fail. Checking the documents by eye does not scale past
+the first edit. Checking them with the extraction pipeline is circular - the pipeline is the
+thing under measurement, and at the time the corpus is authored it does not exist.
+
+### Decision
+
+The renderer is deterministic and emits its own oracle.
+
+`tools/render_corpus.py` reads `eval/cases.json` and writes both the documents and, for each
+case, a manifest recording every fact it wrote as `(field, canonical value, verbatim surface
+string)`. It makes no model call and uses no randomness, so re-running produces byte-identical
+output and version control itself becomes the drift detector.
+
+`eval/verify_corpus.py` then asserts four properties:
+
+1. every manifest surface string appears verbatim in its document;
+2. every date-shaped and money-shaped token in a document is accounted for by a manifest
+   entry;
+3. the canonical values disagree across documents in exactly the places the ledger plants a
+   `CONTRADICTION`, and nowhere else;
+4. every near miss declared as surface variation renders two or more distinct surfaces for
+   one identical canonical value.
+
+Manifests are written to `eval/manifests/` rather than alongside the documents, because
+CLAUDE.md 2.8 forbids the application from reading `eval/`.
+
+### Consequences
+
+- **Clean cases are provable, not assumed.** Property 1 alone proves only presence: a manifest
+  records what the renderer meant to write, not what a reader would find. Property 2 closes
+  the world, and closing the world is what makes absence checkable. C01, C02, C03 and C09
+  carry the calibration argument, so this is the property that matters most.
+- **Drift fails loudly in both directions.** An undeclared contradiction fails as hard as a
+  planted one that went missing.
+- **The app cannot cheat by construction.** Pre-extracted values live in the one directory the
+  application is forbidden to read, rather than next to the documents where reading them would
+  be a one-line accident.
+- **Registrations are excluded from property 2 on purpose.** A pattern permissive enough for
+  `UP-32-DN-6647`, `UP32DN6647`, `U.P. 32 DN 6647` and `DL-8C-AF-3092` also matches things that
+  are not registrations, and a verifier that raises false alarms gets switched off. Property 4
+  covers them without needing a pattern.
+- **Quote matching is whitespace-normalised.** Two correct quotes initially failed because they
+  spanned a line wrap. The phase 7 citation validator inherits this rule: compare content, not
+  layout, or it will strip good citations.
+- **Cost:** the narratives are hand-written, so an additional case costs prose rather than a
+  configuration line. Accepted deliberately - that cost is what stops the corpus reading as
+  machine-generated.
